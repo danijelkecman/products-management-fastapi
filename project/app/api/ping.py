@@ -9,10 +9,10 @@ from app.config import get_settings, Settings
 router = APIRouter()
 
 
-@router.get('/ping')
+@router.get("/ping")
 async def ping(settings: Settings = Depends(get_settings)):
     return {
-        'ttl': '1100',
-        'environment': settings.environment,
-        'testing': settings.testing
+        "ttl": "1100",
+        "environment": settings.environment,
+        "testing": settings.testing,
     }
