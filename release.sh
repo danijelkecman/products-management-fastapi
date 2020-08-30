@@ -5,11 +5,6 @@ set -e
 IMAGE_ID=$(docker inspect ${HEROKU_REGISTRY_IMAGE} --format={{.Id}})
 PAYLOAD='{"updates": [{"type": "web", "docker_image": "'"$IMAGE_ID"'"}]}'
 
-echo $IMAGE_ID
-echo $HEROKU_APP_NAME
-echo $PAYLOAD
-echo $HEROKU_AUTH_TOKEN
-
 curl -n -X PATCH https://api.heroku.com/apps/$HEROKU_APP_NAME/formation \
   -d "${PAYLOAD}" \
   -H "Content-Type: application/json" \
