@@ -233,7 +233,7 @@ def test_update_summary_invalid(
 
 def test_update_summary_invalid_url(test_app):
     response = test_app.put(
-        "/summaries/1/",
+        "/summaries/2/",
         data=json.dumps({"url": "invalid://url", "summary": "updated!"}),
     )
     assert response.status_code == 422
