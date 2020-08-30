@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, test]
     env:
-      HEROKU_APP_NAME: tranquil-wave-1825
+      HEROKU_APP_NAME: fast-summaries
       HEROKU_REGISTRY_IMAGE: registry.heroku.com/${HEROKU_APP_NAME}/web
     steps:
       - name: Checkout master
