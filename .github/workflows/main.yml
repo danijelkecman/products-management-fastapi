@@ -77,6 +77,8 @@ jobs:
             -e DATABASE_TEST_URL=sqlite://sqlite.db \
             -p 5003:8765 \
             ${{ env.IMAGE }}-final:latest
+      - name: Install requirements
+        run: docker exec fast-summaries pip install black flake8 isort pytest
       - name: Pytest
         run: docker exec fast-summaries python -m pytest .
       - name: Flake8

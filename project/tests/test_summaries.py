@@ -18,7 +18,7 @@ def test_create_summaries_invalid_json(test_app):
     assert response.json() == {
         "detail": [
             {
-                "loc": ["body", "url"],
+                "loc": ["body", "payload", "url"],
                 "msg": "field required",
                 "type": "value_error.missing",
             }
@@ -127,12 +127,12 @@ def test_update_summary_invalid_json(test_app_with_db):
     assert response.json() == {
         "detail": [
             {
-                "loc": ["body", "url"],
+                "loc": ["body", "payload", "url"],
                 "msg": "field required",
                 "type": "value_error.missing",
             },
             {
-                "loc": ["body", "summary"],
+                "loc": ["body", "payload", "summary"],
                 "msg": "field required",
                 "type": "value_error.missing",
             },
@@ -153,7 +153,7 @@ def test_update_summary_invalid_keys(test_app_with_db):
     assert response.json() == {
         "detail": [
             {
-                "loc": ["body", "summary"],
+                "loc": ["body", "payload", "summary"],
                 "msg": "field required",
                 "type": "value_error.missing",
             }
@@ -196,12 +196,12 @@ def test_update_summary_invalid_keys(test_app_with_db):
             422,
             [
                 {
-                    "loc": ["body", "url"],
+                    "loc": ["body", "payload", "url"],
                     "msg": "field required",
                     "type": "value_error.missing",
                 },
                 {
-                    "loc": ["body", "summary"],
+                    "loc": ["body", "payload", "summary"],
                     "msg": "field required",
                     "type": "value_error.missing",
                 },
@@ -213,7 +213,7 @@ def test_update_summary_invalid_keys(test_app_with_db):
             422,
             [
                 {
-                    "loc": ["body", "summary"],
+                    "loc": ["body", "payload", "summary"],
                     "msg": "field required",
                     "type": "value_error.missing",
                 }
